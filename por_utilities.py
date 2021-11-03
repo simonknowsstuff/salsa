@@ -4,6 +4,7 @@ PAGE_BEGIN = '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewp
 PAGE_TITLE_END = '</title></head><body>'
 PAGE_END = '</body></html>'
 
+
 ## Local tools
 def write_file(path: str, content:str):
   file = open(path, "w+")
