@@ -4,10 +4,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<script type="text/javascript" src="{{ url_for('static', filename='script.js')}}">
-
-	</script>
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
 	<title>Salsa</title>
 </head>
@@ -17,18 +13,45 @@
 		<div id="header">
 			<h1>Salsa: A quick one-page portfolio creator!</h1>
 		</div>
-		<div class="container">
-			<div id="blob_bg">
-				<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-					<path fill="#FF0066" d="M48.5,-37.8C64.4,-18.9,79.6,1.4,77.8,21.1C75.9,40.7,57,59.8,36.9,65C16.8,70.3,-4.3,61.6,-20.8,50.7C-37.3,39.9,-49.2,26.9,-52.6,12C-56,-2.9,-51,-19.8,-40.9,-37.5C-30.7,-55.1,-15.3,-73.5,0.5,-73.9C16.4,-74.4,32.7,-56.8,48.5,-37.8Z"
-					 transform="translate(100 100)" />
-				</svg>
-			</div>
-			<div class="large_text_gather">
-				<label for="basic_info">Create your website quickly with just a simple introduction!</label>
-        <textarea id="basic_info" name="basic_info" rows="5" cols="20" placeholder="Type something about your portfolio or yourself here!"></textarea>
+		<div class="card_showcase">
+			<div class="card">
+				<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python-logo-notext">
+        <p>Made in Python</p>
+      </div>
+      <div class="card">
+        <img src="https://icon-library.com/images/fast-icon/fast-icon-27.jpg" alt="fast">
+        <p>Quick and Reliable</p>
+      </div>
+      <div class="card">
+        <img src="https://icon-library.com/images/download-icon-svg/download-icon-svg-27.jpg" alt="download">
+        <p>Result downloadable as a zip file</p>
       </div>
     </div>
+		<div class="large_text_gather">
+      <label for="portfolio_title">Enter the title of your website to begin!</label>
+      <input id="portfolio_title" type="text" placeholder="Your website name">
+      <button id="form-getter-btn" onclick="open_form();">Start!</button>
+    </div>
+    <div id="form_container">
+      <form id="web_form" method="POST" action="{{ url_for("main")}}">
+        <h1>Website info</h1>
+        <div class="text_container form_element_container">
+            <label for="confirm_title">Title</label>
+            <input id="confirm_title" type="text" placeholder="Your website name" name="websitename">
+        </div>
+        <div class="textarea_container form_element_container">
+          <label for="about_me">Enter content for your website (Use Markdown)</label>
+          <textarea form="web_form" name="markdown" id="about_me" placeholder="About yourself" rows="5" cols="40"></textarea>
+        </div>
+        <input type="submit">
+        <button id="close_form" type="button" onclick="close_form();">Close form</button>
+      </form>
+    </div>
   </div>
+  <footer class="footer">
+    <p>Made by simonknowsstuff with love &#60;3</p>
+    <p><a href="https://github.com/simonknowsstuff/salsa/">View source code</a></p>
+  </footer>
+  <script type="text/javascript" src="{{ url_for('static', filename='script.js')}}"></script>
 </body>
 </html>
